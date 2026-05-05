@@ -14,11 +14,30 @@
             <img class="encabezado" src="./images/sevina.jpg" alt="encabezado sevina">
         </a> 
     </header>
-    <main>
+    <main class="contenedor-login">
+        <div class="card">
+            <h1>Consulta de Salidas</h1>
+            <p>Ingresá tus credenciales para ver tu historial</p>
+            
+            <div class="form-group">
+                <label for="inputUsuario">Usuario</label>
+                <input type="text" id="inputUsuario" placeholder="Tu usuario">
+            </div>
 
+            <div class="form-group">
+                <label for="inputCodigo">Código</label>
+                <input type="password" id="inputCodigo" placeholder="Tu código secreto">
+            </div>
+
+            <button onclick="loginYConsultar()" class="btn-consultar">Ver mis salidas</button>
+
+            <!-- Aquí el JS inyectará los resultados -->
+            <div id="resultadoHistorial" class="resultado-container"></div>
+        </div>
     </main>
-    <footer>
 
-    </footer>
+    <!-- Al final del body, antes de cerrar el </body>, vinculá el script -->
+    <script src="script.js"></script>
+
 </body>
 </html>
