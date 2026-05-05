@@ -37,19 +37,36 @@ async function loginYConsultar() {
 
 function renderizarHistorial(nombre, fechas) {
     const contenedor = document.getElementById("resultadoHistorial");
+    const main = document.querySelector("main");
     
-    let html = `<h2>Hola, ${nombre}</h2>`;
+    // Agregamos una clase al main para que el CSS mueva la card
+    main.classList.add("sesion-activa");
+
+    let fechasTxt = fechas.reverse().join('\n'); // Preparamos el texto para el archivo
     
-    if (fechas.length === 0) {
-        html += "<p>No tenés salidas registradas hasta el momento.</p>";
-    } else {
-        html += "<p>Tus fechas de salida:</p><div class='grid-fechas'>";
-        // Mostramos las fechas de la más reciente a la más antigua
-        fechas.reverse().forEach(f => {
-            html += `<span class="tag-fecha">${f}</span>`;
-        });
-        html += "</div>";
-    }
+    let html = `
+        <div class="historial-header">
+            <h2>Hola, ${nombre}</h2>
+            <button onclick="descargarTxt('${nombre}', '${fechasTxt}')" class="btn-descargar">
+                Descargar .txt
+            </button>
+        </div>
+        <div class="columna-fechas">
+            ${fechas.length > 0 
+                ? fechas.map(f => `<div class="item-fecha">${f}</div>`).join('') 
+                : '<p>No hay salidas.</p>'}
+        </div>
+    `;
     
     contenedor.innerHTML = html;
+}
+
+function descargarTxt(nombre, contenido) {
+    const elemento = document.createElement('a');
+    const archivo = new Blob([`HISTORIAL DE SALIDAS - ${nombre}\n\n${contenido}`], {type: 'text/plain'});
+    elemento.href = URL.createObjectURL(archivo);
+    elemento.download = `Salidas_${nombre.replace(/ /g, '_')}.txt`;
+    document.body.appendChild(elemento);
+    elemento.click();
+    document.body.removeChild(elemento);
 }
