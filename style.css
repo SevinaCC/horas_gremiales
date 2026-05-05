@@ -20,10 +20,7 @@ body {
 /* 2. HEADER */
 header {
     display: flex;
-    justify-content: center;
-    align-items: center;
     height: 20rem;
-    background-color: white;
     overflow: hidden;
 }
 
