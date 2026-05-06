@@ -5,8 +5,8 @@ const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbzwk1khKFdWfFoJSZ0B
 let datosGlobales = { nombre: "", fechas: [] };
 
 async function loginYConsultar() {
-    const usuario = document.getElementById("inputUsuario").value;
-    const codigo = document.getElementById("inputCodigo").value;
+    const usuario = document.getElementById("inputUsuario").value.toLowerCase().trim();
+    const codigo = document.getElementById("inputCodigo").value.trim();
     const contenedorLista = document.getElementById("resultadoHistorial");
     const columnaResultados = document.getElementById("columna-resultados");
 
@@ -54,7 +54,7 @@ function renderizarHistorial(nombre, fechas) {
     tituloNombre.innerText = `Resultados de: ${nombre}`;
 
     if (fechas.length === 0) {
-        contenedorLista.innerHTML = "<p>No tenés salidas registradas.</p>";
+        contenedorLista.innerHTML = '<p class="vacio">No tenés salidas registradas.</p>';
         return;
     }
 

@@ -79,7 +79,7 @@ header {
     display: block;
     font-size: 1.4rem;
     margin-bottom: 0.5rem;
-    color: #666;
+    color: #000000;
 }
 
 .form-group input {
@@ -89,6 +89,11 @@ header {
     border: 0.1rem solid #ccc;
     border-radius: 0.8rem;
     outline: none;
+}
+
+input:focus {
+    border: 0.25rem solid #00A7AA;
+    
 }
 
 .btn-consultar {
@@ -139,14 +144,14 @@ header {
 
 /* 6. BOTÓN DESCARGAR */
 .btn-descargar {
-    padding: 1rem 2rem;
+    padding: 1rem 1.2rem;
     font-size: 1.4rem;
     background-color: #00A7AA;
     color: white;
     border: none;
     border-radius: 0.5rem;
     cursor: pointer;
-    font-weight: bold;
+    font-weight:600;
 }
 
 .btn-descargar:hover { background-color: #2cbe4b; }
@@ -160,7 +165,9 @@ header {
     overflow-y: auto;
     padding-right: 1rem;
 }
-
+.vacio{
+    font-size: 1.8rem;
+}
 .tag-fecha {
     width: 100%;
     padding: 1.2rem;
