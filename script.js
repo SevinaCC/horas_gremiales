@@ -1,5 +1,5 @@
 // URL de tu Web App (Google Apps Script)
-const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbw7Z3SkHd-5N2Mfhm2rEgZ4N9w3iX8qnPNqRkBh2vP-H7zusCKMH4HuxMJx2ROZcLnW/exec";
+const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbzwk1khKFdWfFoJSZ0BLb70UeTXZrS7MMSQyVzMehGW-SnMuPGOTf1DQtjIUB-3Eeo5/exec";
 
 // Variable global para guardar datos y poder descargar el TXT luego
 let datosGlobales = { nombre: "", fechas: [] };
@@ -51,7 +51,7 @@ function renderizarHistorial(nombre, fechas) {
     const tituloNombre = document.getElementById("nombreDelegado");
     const contenedorLista = document.getElementById("resultadoHistorial");
 
-    tituloNombre.innerText = `Historial de ${nombre}`;
+    tituloNombre.innerText = `Resultados de: ${nombre}`;
 
     if (fechas.length === 0) {
         contenedorLista.innerHTML = "<p>No tenés salidas registradas.</p>";

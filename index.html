@@ -10,29 +10,34 @@
 
 <body>
     <header>
-        <a href="index.html">
-            <img class="encabezado" src="./images/sevina.jpg" alt="encabezado sevina">
-        </a> 
+        <h1 class="tit-ppal">SISTEMA INTERNO - CONSULTA DE HORAS GREMIALES</h1>
+        
+        <div>
+            <a href="index.html">
+                <img class="logo" src="./images/sevina.jpg" alt="encabezado sevina">
+            </a>
+        </div>
+        
     </header>
     
     <main class="dashboard">
     <!-- COLUMNA IZQUIERDA: LOGIN -->
         <section class="columna-login">
             <div class="card">
-                <h1>Consulta de Salidas</h1>
-                <p>Ingresá tus credenciales</p>
+                
+                <h2>Ingresá tus credenciales</h2>
                 
                 <div class="form-group">
                     <label for="inputUsuario">Usuario</label>
-                    <input type="text" id="inputUsuario" placeholder="Ej: JuanPerez">
+                    <input type="text" id="inputUsuario" placeholder="Ej: jperez">
                 </div>
 
                 <div class="form-group">
-                    <label for="inputCodigo">Código</label>
+                    <label for="inputCodigo">Contraseña</label>
                     <input type="password" id="inputCodigo" placeholder="****">
                 </div>
 
-                <button onclick="loginYConsultar()" class="btn-consultar">Ver mis salidas</button>
+                <button onclick="loginYConsultar()" class="btn-consultar">Consultar</button>
             </div>
         </section>
 
@@ -53,7 +58,6 @@
         </section>
     </main>
 
-    <!-- Al final del body, antes de cerrar el </body>, vinculá el script -->
     <script src="script.js"></script>
 
 </body>

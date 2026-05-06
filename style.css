@@ -11,7 +11,7 @@ html {
 }
 
 body {
-    background-color: #00A7AA;
+    background-color: #f9f2f2e3;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -20,26 +20,39 @@ body {
 /* 2. HEADER */
 header {
     display: flex;
-    height: 20rem;
+    flex-direction: row-reverse;
+    align-items: center;
+    height: 14rem;
     overflow: hidden;
-   
+    justify-content: space-evenly;
+    padding: 0 4rem;
+    margin: 1rem;
+    
 }
 
-.encabezado {
-    height: 90%;
-    max-width: 100%;
-    object-fit: contain;
+.tit-ppal {
+    color:rgb(0, 0, 0);
+    font-size: 3rem;
+    white-space: nowrap;
+}
+
+.logo {
+    height: 14rem;
+    width: auto;
+    margin-top: 1rem;
+    padding-top: 1rem;
+
 }
 
 /* 3. DASHBOARD (CONTENEDOR PRINCIPAL) */
 .dashboard {
     flex: 1;
     display: flex;
-    flex-direction: row; /* Columnas una al lado de la otra */
+    /* flex-direction: row; Columnas una al lado de la otra */
     justify-content: center;
     align-items: flex-start;
     gap: 4rem;
-    padding: 4rem;
+    padding: 2rem;
     max-width: 120rem;
     margin: 0 auto;
     width: 100%;
@@ -58,7 +71,7 @@ header {
     text-align: center;
 }
 
-.card h1 { font-size: 2.4rem; margin-bottom: 2rem; color: #333; }
+.card h2 { font-size: 2.4rem; margin-bottom: 2rem; color: #333; }
 
 .form-group { text-align: left; margin-bottom: 2rem; }
 
@@ -81,8 +94,8 @@ header {
 .btn-consultar {
     width: 100%;
     padding: 1.5rem;
-    font-size: 1.8rem;
-    background-color: #007f82;
+    font-size: 2rem;
+    background-color: #00A7AA;
     color: white;
     border: none;
     border-radius: 0.8rem;
@@ -90,10 +103,15 @@ header {
     transition: background 0.3s;
 }
 
+.btn-consultar:hover {
+    background-color: #44ff10;
+    color: black;
+}
+
 /* 5. COLUMNA RESULTADOS (DERECHA) */
 .columna-resultados {
     flex: 1;
-    max-width: 60rem;
+    max-width: 55rem;
     transition: all 0.5s ease;
 }
 
@@ -123,7 +141,7 @@ header {
 .btn-descargar {
     padding: 1rem 2rem;
     font-size: 1.4rem;
-    background-color: #28a745;
+    background-color: #00A7AA;
     color: white;
     border: none;
     border-radius: 0.5rem;
@@ -131,14 +149,14 @@ header {
     font-weight: bold;
 }
 
-.btn-descargar:hover { background-color: #218838; }
+.btn-descargar:hover { background-color: #2cbe4b; }
 
 /* 7. LISTA DE FECHAS */
 .lista-fechas {
     display: flex;
     flex-direction: column;
     gap: 1rem;
-    max-height: 50rem;
+    max-height: 55rem;
     overflow-y: auto;
     padding-right: 1rem;
 }
@@ -149,7 +167,6 @@ header {
     background: #f8f9fa;
     border-left: 0.5rem solid #00A7AA;
     font-size: 1.6rem;
-    border-radius: 0 0.5rem 0.5rem 0;
     color: #333;
 }
 
@@ -167,4 +184,23 @@ header {
         width: 100%;
         max-width: 45rem;
     }
+
+    header {
+        flex-direction: column-reverse;
+        justify-content: center;
+    }
+
+    .logo {
+    height: 8rem;
+    width: auto;
+    margin-top: 0rem;
+    padding-top: 1rem;
+    }
+
+    .tit-ppal {
+    color:rgb(0, 0, 0);
+    font-size: 1.5rem;
+    white-space: wrap;
+    margin-top: 1rem;
+}
 }
