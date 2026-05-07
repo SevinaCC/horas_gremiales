@@ -113,6 +113,14 @@ input:focus {
     color: black;
 }
 
+.mensaje-carga {
+    color: #f80606;
+    text-align: center;
+    margin-top: 1.5rem;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
 /* 5. COLUMNA RESULTADOS (DERECHA) */
 .columna-resultados {
     flex: 1;

@@ -9,12 +9,15 @@ async function loginYConsultar() {
     const codigo = document.getElementById("inputCodigo").value.trim();
     const contenedorLista = document.getElementById("resultadoHistorial");
     const columnaResultados = document.getElementById("columna-resultados");
+    const mensajeCarga = document.getElementById("mensajeCarga");
 
     if (!usuario || !codigo) {
         alert("Completá usuario y código");
         return;
     }
-
+    // --- PASO A: MOSTRAR EL MENSAJE ---
+    mensajeCarga.classList.remove("hidden");
+    contenedorLista.innerHTML = ""; // Limpiamos el historial previo si existiera
     contenedorLista.innerHTML = "<p class='vacio'>Buscando...</p>";
 
     try {
@@ -44,9 +47,13 @@ async function loginYConsultar() {
     } catch (error) {
         console.error("Error:", error);
         alert("Error de conexión. Revisá tu internet o la consola (F12).");
+    } finally {
+        // --- PASO B: OCULTAR EL MENSAJE SIEMPRE AL FINALIZAR ---
+        // El bloque 'finally' se ejecuta tanto si salió bien como si hubo error
+        mensajeCarga.classList.add("hidden");
     }
 }
-
+    
 function renderizarHistorial(nombre, fechas) {
     const tituloNombre = document.getElementById("nombreDelegado");
     const contenedorLista = document.getElementById("resultadoHistorial");
