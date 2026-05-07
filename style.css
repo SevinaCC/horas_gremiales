@@ -182,27 +182,6 @@ input:focus {
 .lista-fechas::-webkit-scrollbar-thumb { background: #ccc; border-radius: 1rem; }
 
 /* RESPONSIVO */
-@media(max-width:1215px) {
-        header {
-            flex-direction: column-reverse;
-            justify-content: center;
-            margin-bottom: 2rem;
-    }
-
-        .logo {
-            height: 11rem;
-            width: auto;
-            margin-top: 0.8rem;
-            padding-top: 1rem;
-    }
-
-        .tit-ppal {
-            color:rgb(0, 0, 0);
-            font-size: 2.5rem;
-            padding: 1rem;
-}
-}
-
 @media (max-width: 850px) {
     .dashboard {
         flex-direction: column;
