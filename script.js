@@ -67,7 +67,7 @@ function renderizarHistorial(nombre, fechas) {
 
     // Inyectamos las fechas en formato de lista (columna)
     // Usamos reverse() para que la más nueva salga arriba
-    contenedorLista.innerHTML = fechas.map(f => `
+    contenedorLista.innerHTML = fechas.reverse().map(f => `
         <div class="tag-fecha">📅 ${f}</div>
     `).join("");
 }
