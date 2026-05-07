@@ -15,7 +15,7 @@ async function loginYConsultar() {
         return;
     }
 
-    contenedorLista.innerHTML = "<p>Buscando...</p>";
+    contenedorLista.innerHTML = "<p class='vacio'>Buscando...</p>";
 
     try {
         const urlFinal = `${WEB_APP_URL}?action=login&user=${encodeURIComponent(usuario)}&pass=${encodeURIComponent(codigo)}`;
