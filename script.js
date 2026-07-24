@@ -42,7 +42,7 @@ async function loginYConsultar() {
             renderizarHistorial(data.nombre, data.fechas);
         } else {
             alert(data.message || "Usuario o código incorrectos");
-            contenedorLista.innerHTML = `<p style="color: red;">${data.message}</p>`;
+            contenedorLista.innerHTML = `<p class="mensaje-error">${data.message}</p>`;
         }
     } catch (error) {
         console.error("Error:", error);
@@ -73,9 +73,9 @@ function renderizarHistorial(nombre, fechas) {
 
         if (linkNota) {
             return `
-                <div class="tag-fecha" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+                <div class="tag-fecha tag-fecha-link">
                     <span>📅 ${textoFecha}</span>
-                    <a href="${linkNota}" target="_blank" rel="noopener noreferrer" style="margin-left: 10px; font-weight: bold; text-decoration: underline;">📄 Ver Nota</a>
+                    <a href="${linkNota}" target="_blank" rel="noopener noreferrer" class="link-nota">📄 Ver Nota</a>
                 </div>
             `;
         } else {
