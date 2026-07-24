@@ -49,7 +49,6 @@ async function loginYConsultar() {
         alert("Error de conexión. Revisá tu internet o la consola (F12).");
     } finally {
         // --- PASO B: OCULTAR EL MENSAJE SIEMPRE AL FINALIZAR ---
-        // El bloque 'finally' se ejecuta tanto si salió bien como si hubo error
         mensajeCarga.classList.add("hidden");
     }
 }
@@ -60,16 +59,29 @@ function renderizarHistorial(nombre, fechas) {
 
     tituloNombre.innerText = `Resultados de: ${nombre}`;
 
-    if (fechas.length === 0) {
+    if (!fechas || fechas.length === 0) {
         contenedorLista.innerHTML = '<p class="vacio">No tenés salidas registradas.</p>';
         return;
     }
 
     // Inyectamos las fechas en formato de lista (columna)
     // Usamos reverse() para que la más nueva salga arriba
-    contenedorLista.innerHTML = fechas.reverse().map(f => `
-        <div class="tag-fecha">📅 ${f}</div>
-    `).join("");
+    contenedorLista.innerHTML = fechas.slice().reverse().map(item => {
+        // Compatibilidad: por si llega como string directo o como objeto {fecha, link}
+        const textoFecha = typeof item === 'object' ? item.fecha : item;
+        const linkNota = typeof item === 'object' ? item.link : null;
+
+        if (linkNota) {
+            return `
+                <div class="tag-fecha" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+                    <span>📅 ${textoFecha}</span>
+                    <a href="${linkNota}" target="_blank" rel="noopener noreferrer" style="margin-left: 10px; font-weight: bold; text-decoration: underline;">📄 Ver Nota</a>
+                </div>
+            `;
+        } else {
+            return `<div class="tag-fecha">📅 ${textoFecha}</div>`;
+        }
+    }).join("");
 }
 
 function descargarTxt() {
@@ -78,10 +90,13 @@ function descargarTxt() {
         return;
     }
 
+    // Mapeamos para extraer únicamente el texto de la fecha
+    const listaTextoFechas = datosGlobales.fechas.map(item => typeof item === 'object' ? item.fecha : item);
+
     const nombreArchivo = `Salidas_${datosGlobales.nombre.replace(/ /g, '_')}.txt`;
     const contenido = `HISTORIAL DE SALIDAS - ${datosGlobales.nombre}\n` +
                       `------------------------------------------\n` +
-                      datosGlobales.fechas.join('\n');
+                      listaTextoFechas.join('\n');
 
     const elemento = document.createElement('a');
     const archivo = new Blob([contenido], {type: 'text/plain'});
