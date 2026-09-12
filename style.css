@@ -1,0 +1,355 @@
+/* 1. RESET Y CONFIGURACIÓN BASE */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+html {
+    font-size: 62.5%; /* 1rem = 10px */
+}
+
+body {
+    background-color: #f9f2f2e3;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* 2. HEADER */
+header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 10rem;
+    overflow: none;
+    justify-content: space-between;
+    padding: 0 2rem;
+    background-color:  #00a7aa;
+
+}
+
+.logo-sevina {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+    height: 10rem;
+    width: auto;
+}
+
+.links a {
+    text-decoration: none;
+    color: white;
+}
+
+.links {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.items {
+    text-decoration: none;
+    font-size: 1.5rem;
+    font-weight: 600;
+    list-style: none;
+    margin: 1rem 0;
+}
+
+.items:hover{
+    transform: scale(1.1);
+    transition: transform 0.2s ease;
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* Contenedor principal de la sesión */
+#user-session-control {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Botón transparente en columna */
+.btn-logout {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  flex-direction: column; /* Apila la imagen arriba y el texto abajo */
+  align-items: center;     /* Centra ambos horizontalmente */
+  gap: 1rem;                /* Espacio entre el ícono y el texto */
+}
+
+/* Tamaño controlado del ícono */
+.salida {
+  height: 4rem;          /* Tamaño proporcional para el header */
+  width: auto;
+  background-color: transparent; /* Quitamos el fondo para evitar cajas */
+}
+
+/* Texto ajustado */
+.salir {
+  font-size: 1.5rem;       /* Proporcional al header */
+  color: black;
+  margin: 0;
+  font-weight: 600;
+}
+
+/* Efecto hover interactivo */
+.btn-logout:hover .salida {
+  transform: scale(1.1);
+  transition: transform 0.2s ease;
+}
+
+/* FIN HEADER */
+
+/* 3. DASHBOARD (CONTENEDOR PRINCIPAL) */
+.dashboard {
+    flex: 1;
+    display: flex;
+    /* flex-direction: row; Columnas una al lado de la otra */
+    justify-content: center;
+    align-items: flex-start;
+    gap: 4rem;
+    padding: 2rem;
+    max-width: 120rem;
+    margin: 3rem auto;
+    width: 100%;
+}
+
+/* 4. COLUMNA LOGIN */
+.columna-login {
+    flex: 0 0 35rem; /* Ancho fijo para el formulario */
+}
+.columna-menu {
+flex: 0 0 35rem; /* Ancho fijo para el formulario */
+}
+
+.card {
+    background-color: white;
+    padding: 3rem;
+    border-radius: 1.5rem;
+    box-shadow: 0 1rem 3rem rgba(0,0,0,0.2);
+    text-align: center;
+}
+
+.card h2 { font-size: 2.4rem; margin-bottom: 1.5rem; color: #333; }
+
+.form-group { text-align: left; margin-bottom: 2rem; }
+
+.form-group label {
+    display: block;
+    font-size: 1.4rem;
+    margin-bottom: 0.5rem;
+    color: #000000;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 1.2rem;
+    font-size: 1.6rem;
+    border: 0.1rem solid #ccc;
+    border-radius: 0.8rem;
+    outline: none;
+}
+
+input:focus {
+    border: 0.25rem solid #00A7AA;
+}
+
+.btn-ingresar {
+    width: 100%;
+    padding: 1.5rem;
+    font-size: 2rem;
+    background-color: #00a7aa;
+    color: white;
+    border: none;
+    border-radius: 0.8rem;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.btn-ingresar:hover, 
+.btn-eleccion:hover,
+.btn-descargar:hover {
+    background-color: #44ff10;
+    color: black;
+}
+
+.btn-eleccion {
+    width: 70%;
+    padding: 1.5rem;
+    font-size: 2rem;
+    background-color: #00a7aa;
+    color: white;
+    border: none;
+    border-radius: 0.8rem;
+    cursor: pointer;
+    transition: background 0.3s;
+    margin: 2rem;
+}
+
+
+.btn-eleccion:disabled {
+    opacity: 0.5;
+    text-decoration: line-through;
+    color: black;
+    background-color: grey;
+    cursor: not-allowed;
+    pointer-events: none; /* Desactiva hover, active y clics completamente */
+}
+
+.mensaje-carga {
+    color: #f80606;
+    text-align: center;
+    margin-top: 1.5rem;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+/* 5. COLUMNA RESULTADOS (DERECHA) */
+.columna-resultados {
+    flex: 1;
+    max-width: 55rem;
+    transition: all 0.5s ease;
+}
+
+.hidden {
+    display: none;
+}
+
+.card-resultados {
+    background-color: white;
+    padding: 3rem;
+    border-radius: 2rem;
+    box-shadow: 0 1rem 4rem rgba(0,0,0,0.2);
+}
+
+.header-resultados {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 0.2rem solid #00A7AA;
+    padding-bottom: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.header-resultados h2 { font-size: 2.2rem; color: #333; }
+
+/* 6. BOTÓN DESCARGAR */
+.btn-descargar {
+    width: 30%;
+    height: 4rem;
+    font-size: 1.4rem;
+    background-color: #00A7AA;
+    color: white;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    font-weight: 600;
+    justify-content: center; /* Centrado horizontal */
+    align-items: center;     /* Centrado vertical */
+    text-align: center;
+    padding: 0.75rem 1.5rem;   /* Relleno parejo alrededor del texto */
+    line-height: 1;
+ }
+
+/* 7. LISTA DE FECHAS */
+.lista-fechas {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    max-height: 55rem;
+    overflow-y: auto;
+    padding-right: 1rem;
+    
+}
+
+.vacio {
+    font-size: 1.8rem;
+}
+
+.tag-fecha {
+    display: flex;
+    width: 100%;
+    padding: 1.2rem;
+    margin: 1rem 0;
+    background: #f8f9fa;
+    border-left: 0.5rem solid #00A7AA;
+    border-radius: 0.8rem;
+    font-size: 1.6rem;
+    color: #333;
+    /*justify-content: space-between;*/
+    gap: 3rem;
+}
+
+/* Scrollbar estética */
+.lista-fechas::-webkit-scrollbar { width: 0.6rem; }
+.lista-fechas::-webkit-scrollbar-thumb { background: #ccc; border-radius: 1rem; }
+
+/* RESPONSIVO */
+@media (max-width: 850px) {
+    .dashboard {
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+    }
+    .columna-login, .columna-resultados {
+        width: 100%;
+        max-width: 40rem;
+    }
+
+    .logo {
+        height: 8rem;
+        width: auto;
+        margin-top: 0rem;
+        padding-top: 1rem;
+    }
+
+    .tit-ppal {
+        color: rgb(0, 0, 0);
+        font-size: 1.5rem;
+        white-space: wrap;
+        margin-top: 1rem;
+    }
+}
+
+/* ============================================
+   8. ESTILOS DE ERRORES Y LINKS DE NOTAS (NUEVO)
+   ============================================ */
+
+/* Mensaje de error al fallar el login */
+.mensaje-error {
+    color: #f80606;
+    font-size: 1.6rem;
+    font-weight: bold;
+}
+
+/* Disposición para tarjetas que tienen link a la nota */
+.tag-fecha-link {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.6rem;
+}
+
+/* Enlace/Botón para abrir la nota en Drive */
+.link-nota {
+    margin-left: 1rem;
+    font-weight: bold;
+    font-size: 1.4rem;
+    color: #00A7AA;
+    text-decoration: underline;
+    transition: color 0.2s ease;
+}
+
+.link-nota:hover {
+    color: #007072;
+}

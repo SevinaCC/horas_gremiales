@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interno - Hs Gremiales</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <div class = "logo-sevina">
+            <a href="index.html">
+                <img class="logo" src="./images/sevina.jpg" alt="encabezado sevina">
+            </a>
+        </div>
+
+        <div class = "links">
+            <ul>
+                <li class="items"><a href="https://docs.google.com/document/d/1LGov7AKjbYixueqMGbS2Rf7aPwm_6DAt/edit?usp=drive_link&ouid=102661046532009509382&rtpof=true&sd=true" target="_blank">Texto desafiliación y direcciones</a></li>
+                <li class="items"><a href="https://drive.google.com/file/d/19XUe7mdjMqdxycVX2XG040xNTbyfqv0d/view?usp=drive_link" target="_blank">Res. A.G. 940/2015 - Horas Gremiales</a></li>
+            </ul>
+        </div>
+
+            <!-- Icono / Botón Cerrar Sesión (Oculto al inicio) -->
+        <div id="user-session-control" class="hidden">
+            <button id="btn-logout" class="btn-logout" title="Cerrar Sesión">
+                <img class="salida" src="./images/puerta-de-salida.png" alt="salir">
+                <span class="salir">Salir</span>
+            </button>
+        </div>
+    </header>
+
+    
+    <main class="dashboard">
+        
+    <!-- COLUMNA IZQUIERDA: LOGIN -->
+        <section id ="columna-login" class="columna-login">
+            <div class="card">
+                
+                <h2>Ingresá tus credenciales</h2>
+                
+                <div class="form-group">
+                    <label for="inputUsuario">Usuario</label>
+                    <input type="text" id="inputUsuario" >
+                </div>
+
+                <div class="form-group">
+                    <label for="inputCodigo">Contraseña</label>
+                    <input type="password" id="inputCodigo">
+                </div>
+
+                <button id="btn-ingresar" class="btn-ingresar">Ingresar</button>
+            </div>
+            <p id="mensajeCarga" class="mensaje-carga hidden">Accediendo al panel...</p>
+        </section>
+
+        <!-- 2. NUEVA VISTA: MENÚ DE DOS BOTONES (Se activa post-login) -->
+        <section id="columna-menu" class="columna-menu hidden">
+            <div class="card">
+                <h2>¿Qué querés hacer?</h2>
+                <div class="menu-acciones">
+                    <button id="btn-ir-cargar" class="btn-eleccion cargar" disabled>Cargar Salida</button>
+                    <button id="btn-ir-chequear" class="btn-eleccion chequear">Buscar Salidas </button>
+                </div>
+            </div>
+        </section>
+
+     <!--COLUMNA DERECHA: RESULTADOS (Se activa al loguear)--> 
+        <section id="columna-resultados" class="columna-resultados hidden">
+            <div class="card-resultados">
+                <div class="header-resultados">
+                    <h2 id="nombreDelegado">Historial</h2>
+                     <!--El botón de descarga debe estar aquí -->
+                    <button id="btnDescargar" class="btn-descargar">Descargar .txt</button>
+                </div>
+                
+            <!--  Aquí el JS inyectará la lista de fechas -->
+                <div id="resultadoHistorial" class="lista-fechas">
+                    <p>Obteniendo historial...</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+
+    <footer> <p class = "parrafooter">Sitio creado por Lucho Ds para SEVINA</p></footer>
+
+</body>
+</html>
